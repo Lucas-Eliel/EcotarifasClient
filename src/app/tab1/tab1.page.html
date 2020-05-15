@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Resultados
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+      <ion-card-header>
+          <ion-card-title style="color:black;font-size: 40px;">Custos</ion-card-title>
+          <ion-card-subtitle>Conta de Energia Elétrica</ion-card-subtitle>
+          <ion-grid>
+              <ion-row>
+                <ion-col>
+                    <img style="width: 40%; height: 100%;" src="assets/resultados.gif">
+                </ion-col>
+                <ion-col>
+                    <ion-input style="color:blue;font-size: 15px;" [(ngModel)]="data"></ion-input>
+                </ion-col>
+              </ion-row>
+          </ion-grid>
+        </ion-card-header>
+    
+        <ion-card-content>
+            <h1 style="color:green;font-size: 40px;">R$ {{valorTotal}}</h1>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-title style="color:black;font-size: 40px;">Metas</ion-card-title>
+            <ion-card-subtitle>Meta Mensal</ion-card-subtitle>
+            <ion-grid>
+                <ion-row>
+                  <ion-col>
+                      <img style="width: 100%; height: 100%;" src="{{metaImagem}}">
+                  </ion-col>
+                  <ion-col>
+                      <h1 style="color:chocolate;font-size: 30px;">R$ {{metaTotal}}</h1>
+                  </ion-col>
+                </ion-row>
+            </ion-grid>
+          </ion-card-header>
+      </ion-card>
+</ion-content>
+ 

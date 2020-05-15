@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      DashBoard [ Kw ] [ Mês ]
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+      <ion-label>Mês</ion-label>
+      <ion-select [(ngModel)]="mesSelect" okText="Aplicar" cancelText="Calcelar" (ionChange)="refreshDados()">
+        <ion-select-option value="01">Janeiro</ion-select-option>
+        <ion-select-option value="02">Fevereiro</ion-select-option>
+        <ion-select-option value="03">Março</ion-select-option>
+        <ion-select-option value="04">Abril</ion-select-option>
+        <ion-select-option value="05">Maio</ion-select-option>
+        <ion-select-option value="06">Junho</ion-select-option>
+        <ion-select-option value="07">Julho</ion-select-option>
+        <ion-select-option value="08">Agosto</ion-select-option>
+        <ion-select-option value="09">Setembro</ion-select-option>
+        <ion-select-option value="10">Outubro</ion-select-option>
+        <ion-select-option value="11">Novembro</ion-select-option>
+        <ion-select-option value="12">Dezembro</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div style="display: block;">
+        <canvas baseChart width="300" height="400"
+                    [datasets]="lineChartData"
+                    [labels]="lineChartLabels"
+                    [options]="lineChartOptions"
+                    [colors]="lineChartColors"
+                    [legend]="lineChartLegend"
+                    [chartType]="lineChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</ion-content>

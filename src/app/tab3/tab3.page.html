@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Bandeiras Tarifárias
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!--Bandeiras Tarifárias-->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="color:black;font-size: 20px;">Taxas Cobradas</ion-card-title>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <ion-grid>
+
+          <ion-card>
+            <ion-card-content>
+              <ion-row>
+                <ion-col size="4" style="color:green; font-size: 14px;">Verde<ion-input style="color:green;font-size: 14px;" [(ngModel)]="bandVerde"></ion-input></ion-col>
+                <ion-toggle color="primary" [(ngModel)]="verde"></ion-toggle>
+              </ion-row>
+              <ion-row size="4" style="color:gray; font-size: 12px;"> ** Condições favoráveis de geração de energia. A tarifa não sofre nenhum acréscimo;</ion-row>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-content>
+              <ion-row>
+                <ion-col size="4" text-left style="color:#FFCC00; font-size: 14px;">Amarela<ion-input style="color:#FFCC00;font-size: 14px;" [(ngModel)]="bandAmarela"></ion-input></ion-col>
+                <ion-toggle color="primary" [(ngModel)]="amarela"></ion-toggle>
+              </ion-row>
+              <ion-row size="4" style="color:gray; font-size: 12px;"> ** Condições de geração menos favoráveis. A tarifa sofre acréscimo de taxa acima para cada quilowatt-hora (kWh) consumidos;</ion-row>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-content>
+              <ion-row>
+                <ion-col size="6" text-left style="color:red; font-size: 14px;">Vermelha Patamar 1<ion-input style="color:red;font-size: 14px;" [(ngModel)]="bandVermelha1"></ion-input></ion-col>
+                <ion-toggle color="primary" [(ngModel)]="vermelha1"></ion-toggle>
+              </ion-row>
+              <ion-row size="4" style="color:gray; font-size: 12px;"> ** Condições mais custosas de geração. A tarifa sofre acréscimo de taxa acima para cada quilowatt-hora kWh consumido.</ion-row>
+            </ion-card-content>
+          </ion-card>
+          
+          <ion-card>
+            <ion-card-content>
+              <ion-row>
+                <ion-col size="6" text-left style="color:red; font-size: 14px;">Vermelha Patamar 2<ion-input style="color:red;font-size: 14px;" [(ngModel)]="bandVermelha2"></ion-input></ion-col>
+                <ion-toggle color="primary" [(ngModel)]="vermelha2"></ion-toggle>
+              </ion-row>
+              <ion-row size="4" style="color:gray; font-size: 12px;"> ** Condições ainda mais custosas de geração. A tarifa sofre acréscimo de taxa acima para cada quilowatt-hora kWh consumido.</ion-row>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-content>
+              <ion-row>
+                <ion-col size="6" text-left style="color:black; font-size: 14px;">Taxa<ion-input style="color:black;font-size: 14px;" [(ngModel)]="taxaFixa"></ion-input></ion-col>            
+              </ion-row>
+              <ion-row size="4" style="color:gray; font-size: 12px;"> ** Taxa Fixa para Cálculo</ion-row>
+            </ion-card-content>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-content>
+                <ion-button (click)="gravarAlteracoesBandeiras()" expand="block">Gravar</ion-button>
+            </ion-card-content>
+          </ion-card>
+
+        </ion-grid>
+      </ion-card-content>
+
+      <p style="color:blue; font-size: 12px;">&nbsp;&nbsp;&nbsp;&nbsp;** Dados consultados no site Oficial da ANEEL <a style="color:blue; font-size: 12px;" href="http://www.aneel.gov.br/tarifas-consumidores/-/asset_publisher/e2INtBH4EC4e/content/bandeira-tarifaria/654800?inheritRedirect=false">Acessar</a><p>
+    </ion-card>
+</ion-content>
+ 

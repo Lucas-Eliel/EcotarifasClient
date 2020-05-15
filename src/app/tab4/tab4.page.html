@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Controle de Cargas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+    <!--Cargas / Cadastro de Cargas-->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="color:black;font-size: 20px;">Cargas</ion-card-title>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="2" style="color:black; font-size: 12px;">Equip.</ion-col>
+            <ion-col size="3" text-right style="color:black; font-size: 12px;">Meta(R$)</ion-col>
+            <ion-col size="2" text-right style="color:black; font-size: 12px;">Ctrl</ion-col>
+            <ion-col size="2" text-right style="color:black; font-size: 12px;">Aduíno</ion-col>
+            <ion-col size="2" text-right style="color:black; font-size: 12px;">Edição</ion-col>
+          </ion-row>
+          <div *ngFor="let carga of listaCargas">
+            <ion-row>
+              <ion-col size="3" style="font-size: 12px;">{{ carga.nome }}</ion-col>
+              <ion-col size="2" text-right style="font-size: 12px;">{{ carga.meta }}</ion-col>
+              <ion-col size="2" text-right style="font-size: 12px;">{{ carga.ctrldiario }}</ion-col>
+              <ion-col size="2" text-right style="font-size: 12px;">{{ carga.arduino }}</ion-col>
+              <ion-col size="2" text-right (click)="editarOuExcluirEquipamento(carga.equipamentoid, carga.nome, carga.meta, carga.ctrldiario, carga.arduino)"><ion-icon name="brush"></ion-icon></ion-col>            
+            </ion-row>
+          </div>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!--Controle de Cargas-->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="color:black;font-size: 20px;">Controle</ion-card-title>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="2" style="color:black; font-size: 12px;">Equip.</ion-col>
+            <ion-col size="3" text-right style="color:black; font-size: 12px;">Estado</ion-col>
+            <ion-col size="2" text-right style="color:black; font-size: 12px;">Gatilho</ion-col>            
+            <ion-col size="2" text-right style="color:black; font-size: 12px;">Edição</ion-col>
+          </ion-row>
+          <div *ngFor="let controle of listaControles">
+            <ion-row>
+              <ion-col size="3" style="font-size: 12px;">{{ controle.nome }}</ion-col>
+              <ion-col size="2" text-right style="color:red; font-size: 12px;">{{ controle.estado == 0 ? 'OFF' : 'ON'}}</ion-col>
+              <ion-col size="2" text-right (click)="operarGatilho(controle.controleid, controle.nome, controle.status, controle.statdtini, controle.controle, controle.ctrldtini, controle.estado)"><ion-icon name="ios-flash"></ion-icon></ion-col>
+              <ion-col size="2" text-right (click)="editarOuExcluirControle(controle.controleid, controle.nome, controle.status, controle.statdtini, controle.controle, controle.ctrldtini, controle.estado)"><ion-icon name="brush"></ion-icon></ion-col>            
+            </ion-row>
+          </div>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- fab placed in the center of the content with a list on each side -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button (click)="novoEquipamento()">Eqp.</ion-fab-button>
+      </ion-fab-list>
+      <ion-fab-list side="start">
+        <ion-fab-button (click)="novoControle()">Ctrl.</ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+</ion-content>

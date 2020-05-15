@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Controle
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    
+    <ion-item>
+      <ion-label position="stacked">Equipamento</ion-label>
+      <ion-input [(ngModel)]="equip"></ion-input>
+    </ion-item>
+
+    <ion-button disabled="{{tipo}}" (click)="gravar()" expand="block">Gravar</ion-button>
+
+    <ion-button disabled="{{!tipo}}" (click)="excluir()" color="danger" expand="block">Excluir</ion-button>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click) = "close()">
+        Sair
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+  
